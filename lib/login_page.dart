@@ -1,4 +1,5 @@
 import 'package:aust_pharma1/homepage.dart';
+import 'package:aust_pharma1/signup_page.dart';
 import 'package:aust_pharma1/usuables/text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -173,7 +174,7 @@ class login_page extends StatelessWidget {
                   ),
                   onTap: (){
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
+                        builder: (_)=>signup_page()));
                   },
                 ),
               ],
