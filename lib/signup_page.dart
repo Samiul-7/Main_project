@@ -75,107 +75,156 @@ class _SignUpScreenState extends State<signup_page>{
                       children: [
                         Align(
                           alignment: Alignment.center,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text('Sign Up',style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
+                          child: Form(
+                            key: _formSignupKey,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text('Sign Up',style: TextStyle(
+                                  color: Colors.black54,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
 
 
-                              ),),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: TextField(
-
-                                  decoration: InputDecoration(
-                                    labelText: 'Full Name',
-                                    labelStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-
-                                    ),
-                                    fillColor: Colors.redAccent,
-                                    filled: true,
-
-                                    hintText: 'Full Name',
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: TextField(
-
-                                  decoration: InputDecoration(
-                                    labelText: 'Email',
-                                    labelStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-
-                                    ),
-                                    fillColor: Colors.redAccent,
-                                    filled: true,
-
-                                    hintText: 'Email Adress',
-                                  ),
-                                ),
-                              ),
-                              Padding(
-
-                                padding: const EdgeInsets.all(15.0),
-                                child: TextField(
-                                  controller: pass_control,
-                                  obscureText: true,
-
-
-                                  decoration: InputDecoration(
-                                    labelText: 'Password',
-                                    suffixIcon: Icon(Icons.visibility_off),
-                                    labelStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-
-                                    ),
-                                    fillColor: Colors.redAccent,
-                                    filled: true,
-                                    hintText: 'Input Password',
-                                  ),
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  Checkbox(
-                                    value: agreePersonalData,
-                                    onChanged: (bool? value) {
-                                      setState(() {
-                                        agreePersonalData = value!;
-                                      });
+                                ),),
+                                Padding(
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: TextFormField(
+                                    validator: (value){
+                                      if(value== null|| value.isEmpty)
+                                      {
+                                        return 'Please enter your name';
+                                      }
+                                      return null;
                                     },
-                                    activeColor: lightColorScheme.primary,
-                                  ),
-                                  const Text(
-                                    'I agree to the processing of ',
-                                    style: TextStyle(
-                                      color: Colors.black45,
+
+                                    decoration: InputDecoration(
+                                      labelText: 'Full Name',
+                                      labelStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+
+                                      ),
+                                      fillColor: Colors.redAccent,
+                                      filled: true,
+
+                                      hintText: 'Full Name',
                                     ),
                                   ),
-                                  Text(
-                                    'Personal data',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: lightColorScheme.primary,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: TextFormField(
+                                    validator: (value){
+                                      if(value== null|| value.isEmpty)
+                                        {
+                                          return 'Please enter email';
+                                        }
+                                      return null;
+    },
+
+                                    decoration: InputDecoration(
+                                      labelText: 'Email',
+                                      labelStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+
+                                      ),
+                                      fillColor: Colors.redAccent,
+                                      filled: true,
+
+                                      hintText: 'Email Adress',
                                     ),
                                   ),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 25.0,
-                              ),
+                                ),
+                                Padding(
+
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: TextFormField(
+                                    validator: (value){
+                                      if(value== null|| value.isEmpty)
+                                      {
+                                        return 'Please enter email';
+                                      }
+                                      return null;
+                                    },
+                                    controller: pass_control,
+                                    obscureText: true,
 
 
-                            ],
+                                    decoration: InputDecoration(
+                                      labelText: 'Password',
+                                      suffixIcon: Icon(Icons.visibility_off),
+                                      labelStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+
+                                      ),
+                                      fillColor: Colors.redAccent,
+                                      filled: true,
+                                      hintText: 'Input Password',
+                                    ),
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Checkbox(
+                                      value: agreePersonalData,
+                                      onChanged: (bool? value) {
+                                        setState(() {
+                                          agreePersonalData = value!;
+                                        });
+                                      },
+                                      activeColor: lightColorScheme.primary,
+                                    ),
+                                    const Text(
+                                      'I agree to the processing of ',
+                                      style: TextStyle(
+                                        color: Colors.black45,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Personal data',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: lightColorScheme.primary,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 25.0,
+                                ),
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      if (_formSignupKey.currentState!.validate() &&
+                                          agreePersonalData) {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                            content: Text('Processing Data'),
+                                          ),
+                                        );
+                                      } else if (!agreePersonalData) {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                              content: Text(
+                                                  'Please agree to the processing of personal data')),
+                                        );
+                                      }
+                                    },
+                                    child: const Text('Sign up'),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 30.0,
+                                ),
+
+
+                              ],
+                            ),
                           ),
                         )
                       ],
