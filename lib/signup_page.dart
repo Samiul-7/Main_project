@@ -257,6 +257,67 @@ class _SignUpScreenState extends State<signup_page>{
                                 const SizedBox(
                                   height: 30.0,
                                 ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: InkWell(
+                                        child: Image(
+                                          image: AssetImage('assets/facebook.png'),
+                                        ),
+                                        onTap: (){
+                                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                              builder: (_)=>home_page()));
+                                        },
+                                      ),
+
+                                    ),
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: InkWell(
+                                        child: Image(
+                                          image: AssetImage('assets/twitter.png'),
+                                        ),
+                                        onTap: (){
+                                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                              builder: (_)=>home_page()));
+                                        },
+                                      ),
+
+                                    ),
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: InkWell(
+                                        child: Image(
+                                          image: AssetImage('assets/google.png'),
+                                        ),
+                                        onTap: (){
+                                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                              builder: (_)=>home_page()));
+                                        },
+                                      ),
+
+                                    ),
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: InkWell(
+                                        child: Image(
+                                          image: AssetImage('assets/github.png'),
+                                        ),
+                                        onTap: (){
+                                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                              builder: (_)=>home_page()));
+                                        },
+                                      ),
+
+                                    )
+                                  ],
+                                ),
                                                 
                                                 
                               ],
