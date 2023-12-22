@@ -3,6 +3,8 @@ import 'package:aust_pharma1/signup_page.dart';
 import 'package:aust_pharma1/usuables/text_field.dart';
 import 'package:flutter/material.dart';
 
+import 'Widgets/Background.dart';
+
 class login_page extends StatelessWidget {
   login_page({super.key});
 
@@ -11,9 +13,9 @@ class login_page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: SingleChildScrollView(
+    return Background(
+
+     child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height:40),
@@ -112,53 +114,67 @@ class login_page extends StatelessWidget {
             SizedBox(height: 30),
             //////////////////////////////////////////////facebook + apple design
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                  child: Ink.image(image: AssetImage('assets/google.png'),
-                    height: 70,
-                    width: 70,
+                Container(
+                  height: 30,
+                  width: 30,
+                  child: InkWell(
+                    child: Image(
+                      image: AssetImage('assets/facebook.png'),
+                    ),
+                    onTap: (){
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (_)=>home_page()));
+                    },
                   ),
+
                 ),
-                SizedBox(width:20),
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                  child: Ink.image(image: AssetImage('assets/facebook.png'),
-                    height: 70,
-                    width: 70,
+                Container(
+                  height: 30,
+                  width: 30,
+                  child: InkWell(
+                    child: Image(
+                      image: AssetImage('assets/twitter.png'),
+                    ),
+                    onTap: (){
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (_)=>home_page()));
+                    },
                   ),
+
                 ),
-                SizedBox(width:20),
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                  child: Ink.image(image: AssetImage('assets/twitter.png'),
-                    height: 70,
-                    width: 70,
+                Container(
+                  height: 30,
+                  width: 30,
+                  child: InkWell(
+                    child: Image(
+                      image: AssetImage('assets/google.png'),
+                    ),
+                    onTap: (){
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (_)=>home_page()));
+                    },
                   ),
+
                 ),
-                SizedBox(width:20),
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                  child: Ink.image(image: AssetImage('assets/github.png'),
-                    height: 70,
-                    width: 70,
+                Container(
+                  height: 30,
+                  width: 30,
+                  child: InkWell(
+                    child: Image(
+                      image: AssetImage('assets/github.png'),
+                    ),
+                    onTap: (){
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (_)=>home_page()));
+                    },
                   ),
-                ),
+
+                )
               ],
             ),
+
             SizedBox(height: 50,),
             ////////////////////////////////////////////not a member? register now
             Row(

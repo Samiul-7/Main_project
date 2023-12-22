@@ -142,6 +142,31 @@ class _SignUpScreenState extends State<signup_page>{
                                   ),
                                 ),
                                 Padding(
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: TextFormField(
+                                    validator: (value){
+                                      if(value== null|| value.isEmpty)
+                                      {
+                                        return 'Please enter Address';
+                                      }
+                                      return null;
+                                    },
+
+                                    decoration: InputDecoration(
+                                      labelText: 'Address',
+                                      labelStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+
+                                      ),
+                                      fillColor: Colors.redAccent,
+                                      filled: true,
+
+                                      hintText: 'Address',
+                                    ),
+                                  ),
+                                ),
+                                Padding(
                                                 
                                   padding: const EdgeInsets.all(15.0),
                                   child: TextFormField(
