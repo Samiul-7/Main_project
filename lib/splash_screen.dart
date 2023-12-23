@@ -23,7 +23,7 @@ class _splash_screenState extends State<splash_screen> {
     /*Timer(Duration(seconds: 5),(){
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>home_page() ));
     });*/
-    Future.delayed(Duration(seconds: 5),(){
+    Future.delayed(Duration(seconds: 8),(){
       Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (_)=>login_page()));
     });

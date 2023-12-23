@@ -18,7 +18,7 @@ class login_page extends StatelessWidget {
      child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height:40),
+            SizedBox(height:25),
             //////////////////////////////////////////logo
             Center(
               child: Icon(
