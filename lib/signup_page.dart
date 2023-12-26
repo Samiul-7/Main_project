@@ -236,26 +236,27 @@ class _SignUpScreenState extends State<signup_page>{
                                 SizedBox(
                                   width: double.infinity,
                                   child: ElevatedButton(
-                                    onPressed: _signUp,
-                                    /////////////////////////////////////////////////////////////////////////////
-                                    //     () {
-                                    //   if (_formSignupKey.currentState!.validate() &&
-                                    //       agreePersonalData) {
-                                    //     // ScaffoldMessenger.of(context).showSnackBar(
-                                    //     //   const SnackBar(
-                                    //     //     content: Text('Processing Data'),
-                                    //     //   ),
-                                    //     // );
-                                    //     print("Validation is Done");
-                                    //   } else if (!agreePersonalData) {
-                                    //     ScaffoldMessenger.of(context).showSnackBar(
-                                    //       const SnackBar(
-                                    //           content: Text(
-                                    //               'Please agree to the processing of personal data')),
-                                    //     );
-                                    //   }
-                                    // },
-                                    //////////////////////////////////////////////////////////////////////////////
+                                    onPressed:
+
+                                        () {
+                                      if (_formSignupKey.currentState!.validate() &&
+                                           agreePersonalData) {
+                                        _signUp();
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                           const SnackBar(
+                                            content: Text('Processing Data'),
+                                           ),
+                                         );
+                                         print("Validation is Done");
+                                      } else if (!agreePersonalData) {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                              content: Text(
+                                                  'Please agree to the processing of personal data')),
+                                        );
+                                      }
+                                    },
+
                                     child: const Text('Sign up'),
                                   ),
                                 ),
