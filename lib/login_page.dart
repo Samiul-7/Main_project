@@ -1,14 +1,29 @@
+
+import 'package:aust_pharma1/firebase_auth_implement/firebase_auth_services.dart';
 import 'package:aust_pharma1/homepage.dart';
 import 'package:aust_pharma1/signup_page.dart';
 import 'package:aust_pharma1/usuables/text_field.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'Widgets/Background.dart';
 
-class login_page extends StatelessWidget {
+class login_page extends StatefulWidget {
   login_page({super.key});
 
+  @override
+  State<login_page> createState() => _login_pageState();
+}
+
+class _login_pageState extends State<login_page> {
+  ///////////////////////////////////////////////////////
+
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+  //////////////////////////////////////////////////////
+
   final username_controller=TextEditingController();
+
   final pass_controller=TextEditingController();
 
   @override
@@ -62,10 +77,11 @@ class login_page extends StatelessWidget {
                 children:[
                   SizedBox(width:100,),
                   ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
+                  onPressed:_signIn,
+                  //     () {
+                  //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  //       builder: (_)=>home_page()));
+                  // },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black), // Change button color
                     minimumSize: MaterialStateProperty.all(Size(150, 40)), // Change button size
@@ -200,5 +216,23 @@ class login_page extends StatelessWidget {
       ),
     );;
   }
+
+  /////////////////////////////////////////////////////////////////////
+    void _signIn() async{
+      String email=username_controller.text;
+      String password= pass_controller.text;
+
+      User? user =await _auth.signInWithEmailAndPassword(email, password);
+
+      if(user!= null){
+        print("Successfully logged in");
+
+        Navigator.push(context,MaterialPageRoute(builder: (context) => home_page()));
+      }
+      else{
+        print("Some error Occured");
+      }
+    }
+    //////////////////////////////////////////////////////////////////
 }
 
