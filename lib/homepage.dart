@@ -1,6 +1,113 @@
 import 'package:flutter/material.dart';
 
 class home_page extends StatelessWidget {
+  Widget singleProducts()
+  {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5),
+      height: 230,
+      width: 160,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: 5,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+
+              child: Image.asset("assets/napa.png"),
+              flex: 2,),
+            Expanded(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  Text("Napa 500",style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+
+                  ),
+                  Text("50 Tk per pack",style: TextStyle(
+                    color: Colors.grey,
+
+                  ),
+
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 5),
+                          height: 30,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(child: Text(
+                                "1 pack",
+                                style: TextStyle(fontSize: 10),
+                              )),
+                              Center(
+                                child: Icon(
+                                  Icons.arrow_drop_down,
+                                  size: 20,
+                                  color: Colors.redAccent,
+                                ),
+                              )
+
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 30,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.remove,
+                                size: 15,
+                                color: Colors.orangeAccent,),
+                              Text("1"),
+
+                              Icon(Icons.add,
+                                size: 15,
+                                color: Colors.orangeAccent,)
+                            ],
+                          ),
+
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),)
+          ],
+        ),
+      ),
+
+    );
+  }
   //const home_page({super.key});
   final List<String> adImages = [
     'https://i.ytimg.com/vi/MnbXAGk0QpQ/maxresdefault.jpg',
@@ -16,6 +123,7 @@ class home_page extends StatelessWidget {
   //_MyHomePageState createState() => _MyHomePageState();
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white70,
         appBar: AppBar(
           centerTitle: true,
           backgroundColor:Colors.green,
@@ -49,50 +157,158 @@ class home_page extends StatelessWidget {
 
         ),
 
-        body: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    TextField(
-                      //controller: _searchcontroller,
-                      decoration: InputDecoration(
-                        hintText: 'Search...',
+        body: SingleChildScrollView(
+          child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      TextField(
+                        //controller: _searchcontroller,
+                        decoration: InputDecoration(
+                          hintText: 'Search...',
+                        ),
+
                       ),
+                      SizedBox(height: 16),
 
-                    ),
-                    SizedBox(height: 16),
+                    ],
+                  ),
 
-                  ],
                 ),
 
-              ),
+                Container(
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: adImages.length,
+                      itemBuilder: (context,index){
+                        return Container(
+                          width: 200,
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            image: DecorationImage(
+                              image: NetworkImage(adImages[index]),
+                              fit: BoxFit.cover,
+                            ),
 
-              Container(
-                  height: 200,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: adImages.length,
-                    itemBuilder: (context,index){
-                      return Container(
-                        width: 200,
-                        margin: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          image: DecorationImage(
-                            image: NetworkImage(adImages[index]),
-                            fit: BoxFit.cover,
                           ),
+                        );
+                      },
+                    )
 
-                        ),
-                      );
-                    },
-                  )
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Catagory 1',style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),),
+                      Text('View All',style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 20,
+                      ),),
 
-              )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
 
-            ]
+                      children: [
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Catagory 2',style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),),
+                      Text('View All',style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 20,
+                      ),),
+
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+
+                      children: [
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Catagory 3',style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),),
+                      Text('View All',style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 20,
+                      ),),
+
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+
+                      children: [
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+                        singleProducts(),
+
+                      ],
+                    ),
+                  ),
+                ),
+
+
+
+
+
+              ]
+          ),
         )
 
     );
