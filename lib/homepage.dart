@@ -56,7 +56,7 @@ class home_page extends StatelessWidget {
                           child: Row(
                             children: [
                               Expanded(child: Text(
-                                "1 pack",
+                                "1 Box",
                                 style: TextStyle(fontSize: 10),
                               )),
                               Center(
@@ -108,6 +108,30 @@ class home_page extends StatelessWidget {
 
     );
   }
+  Widget listTile(IconData icon,String title)
+  {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+
+        )
+      ),
+      onPressed: (){},
+      child: ListTile(
+        leading: Icon(
+            icon,
+        size: 32),
+        title: Text(
+          title,
+          style: TextStyle(color: Colors.black54),),
+
+
+
+      ),
+    );
+
+
+  }
   //const home_page({super.key});
   final List<String> adImages = [
     'https://i.ytimg.com/vi/MnbXAGk0QpQ/maxresdefault.jpg',
@@ -124,13 +148,142 @@ class home_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white70,
+        drawer: Drawer(
+          child: Container(
+            color: Colors.redAccent,
+            child: ListView(
+              children: [
+                DrawerHeader(
+
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 43,
+                        child: CircleAvatar(
+                          child:Container(
+                            height: 70,
+                            width: 70,
+
+
+
+
+                            child: Image.asset("assets/Profile.png"),
+
+                          ),
+                          backgroundColor: Colors.orangeAccent,
+                          radius: 40,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Welcome User"),
+                          SizedBox(
+                            height: 7,
+                          ),
+                          Container(
+                            height: 30,
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: BorderSide(
+
+                                    width: 2,
+                                  )
+                                )
+
+                              ),
+                              onPressed: (){},
+                              child: Text("Log in"),
+
+
+
+                            ),
+
+
+
+
+                            ),
+
+
+                        ],
+                      )
+
+                    ],
+                  ),
+
+
+                ),
+                listTile(Icons.home_outlined, "Home"),
+                listTile(Icons.shopping_cart, "Review Cart"),
+                listTile(Icons.person_2_outlined, "Profile"),
+                listTile(Icons.notifications_outlined, "Notification"),
+                listTile(Icons.star_outline, "Rating"),
+                listTile(Icons.favorite_outlined, "Wish list"),
+                listTile(Icons.copy_all_outlined, "Complain Box"),
+                listTile(Icons.question_mark_outlined, "FAQ"),
+                Container(
+                  height: 350,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+
+                      children: [
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text("Contact Support",style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                         children: [
+                           Text("Contact no:",style: TextStyle(fontWeight: FontWeight.bold),),
+                           SizedBox(
+                             width: 10,
+                           ),
+                           Text("01983716969"),
+                         ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Text("Mail Address:",style: TextStyle(fontWeight: FontWeight.bold),),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("shafin@gmail.com"),
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                )
+
+              ],
+            ),
+          )
+
+        ),
         appBar: AppBar(
           centerTitle: true,
           backgroundColor:Colors.green,
           title: Row(
+
             children: [
               SizedBox(width: 10),
-              DropdownButton<String>(
+             /* DropdownButton<String>(
                 value: selectedcategory,
                 onChanged: (String? newValue){
                   if(newValue != null){
@@ -144,6 +297,8 @@ class home_page extends StatelessWidget {
                   );
                 }).toList(),
               ),
+
+              */
               Text('AUST Pharma',
                   style: TextStyle(
                       fontSize: 30,
