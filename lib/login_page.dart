@@ -192,6 +192,7 @@ class _login_pageState extends State<login_page> {
             ),
 
             SizedBox(height: 50,),
+
             ////////////////////////////////////////////not a member? register now
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -211,7 +212,27 @@ class _login_pageState extends State<login_page> {
                 ),
               ],
             ),
+            SizedBox(height: 50,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Sign in as a',
+                  style: TextStyle(color: Colors.grey.shade900,fontSize: 20),
+                ),
+                SizedBox(width:10,),
+                GestureDetector(
+                  child: Text('Guest !',
+                    style: TextStyle(color: Colors.blue.shade900,fontWeight: FontWeight.bold,fontSize: 20),
+                  ),
+                  onTap: (){
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (_)=>home_page()));
+                  },
+                ),
+              ],
+            ),
           ],
+
         ),
       ),
     );;

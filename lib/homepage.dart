@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'login_page.dart';
 
 class home_page extends StatelessWidget {
   Widget singleProducts()
@@ -164,11 +165,7 @@ class home_page extends StatelessWidget {
                           child:Container(
                             height: 70,
                             width: 70,
-
-
-
-
-                            child: Image.asset("assets/Profile.png"),
+                             child: Image.asset("assets/github.png"),
 
                           ),
                           backgroundColor: Colors.orangeAccent,
