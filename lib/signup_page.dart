@@ -35,10 +35,6 @@ class _SignUpScreenState extends State<signup_page>{
 
   Widget build(BuildContext context){
     return Background(
-
-
-
-
       child: Stack(
         children: [
           IconButton(
@@ -409,7 +405,7 @@ class _SignUpScreenState extends State<signup_page>{
     
   }
   Future userdetail(String name,String address,String email,String password) async{
-    await FirebaseFirestore.instance.collection('users').add({
+    await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser?.uid).set({
       'Name' : name,
       'Address' : address,
       'E-mail' : email,

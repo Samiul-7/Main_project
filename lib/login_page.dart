@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'Widgets/Background.dart';
+import 'admin_page.dart';
 
 class login_page extends StatefulWidget {
   login_page({super.key});
@@ -21,6 +22,10 @@ class _login_pageState extends State<login_page> {
   final FirebaseAuthService _auth = FirebaseAuthService();
 
   //////////////////////////////////////////////////////
+
+  final A_email='admin123@gmail.com';
+  final A_pass='admin123';
+
 
   final username_controller=TextEditingController();
 
@@ -146,20 +151,20 @@ class _login_pageState extends State<login_page> {
                   ),
 
                 ),
-                Container(
-                  height: 30,
-                  width: 30,
-                  child: InkWell(
-                    child: Image(
-                      image: AssetImage('assets/twitter.png'),
-                    ),
-                    onTap: (){
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (_)=>home_page()));
-                    },
-                  ),
-
-                ),
+                // Container(
+                //   height: 30,
+                //   width: 30,
+                //   child: InkWell(
+                //     child: Image(
+                //       image: AssetImage('assets/twitter.png'),
+                //     ),
+                //     onTap: (){
+                //       Navigator.of(context).pushReplacement(MaterialPageRoute(
+                //           builder: (_)=>home_page()));
+                //     },
+                //   ),
+                //
+                // ),
                 Container(
                   height: 30,
                   width: 30,
@@ -174,20 +179,20 @@ class _login_pageState extends State<login_page> {
                   ),
 
                 ),
-                Container(
-                  height: 30,
-                  width: 30,
-                  child: InkWell(
-                    child: Image(
-                      image: AssetImage('assets/github.png'),
-                    ),
-                    onTap: (){
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (_)=>home_page()));
-                    },
-                  ),
-
-                )
+                // Container(
+                //   height: 30,
+                //   width: 30,
+                //   child: InkWell(
+                //     child: Image(
+                //       image: AssetImage('assets/github.png'),
+                //     ),
+                //     onTap: (){
+                //       Navigator.of(context).pushReplacement(MaterialPageRoute(
+                //           builder: (_)=>home_page()));
+                //     },
+                //   ),
+                //
+                // )
               ],
             ),
 
@@ -213,24 +218,24 @@ class _login_pageState extends State<login_page> {
               ],
             ),
             SizedBox(height: 50,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Sign in as a',
-                  style: TextStyle(color: Colors.grey.shade900,fontSize: 20),
-                ),
-                SizedBox(width:10,),
-                GestureDetector(
-                  child: Text('Guest !',
-                    style: TextStyle(color: Colors.blue.shade900,fontWeight: FontWeight.bold,fontSize: 20),
-                  ),
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                ),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Text('Sign in as a',
+            //       style: TextStyle(color: Colors.grey.shade900,fontSize: 20),
+            //     ),
+            //     SizedBox(width:10,),
+            //     GestureDetector(
+            //       child: Text('Guest !',
+            //         style: TextStyle(color: Colors.blue.shade900,fontWeight: FontWeight.bold,fontSize: 20),
+            //       ),
+            //       onTap: (){
+            //         Navigator.of(context).pushReplacement(MaterialPageRoute(
+            //             builder: (_)=>home_page()));
+            //       },
+            //     ),
+            //   ],
+            // ),
           ],
 
         ),
@@ -239,19 +244,25 @@ class _login_pageState extends State<login_page> {
   }
 
   /////////////////////////////////////////////////////////////////////
-    void _signIn() async{
-      String email=username_controller.text;
-      String password= pass_controller.text;
-
-      User? user =await _auth.signInWithEmailAndPassword(email, password);
-
-      if(user!= null){
-        print("Successfully logged in");
-
-        Navigator.push(context,MaterialPageRoute(builder: (context) => home_page()));
+    void _signIn() async {
+      String email = username_controller.text;
+      String password = pass_controller.text;
+      if (email == A_email && password == A_pass) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => adminP()));
       }
-      else{
-        print("Some error Occured");
+      else {
+        User? user = await _auth.signInWithEmailAndPassword(email, password);
+
+        if (user != null) {
+          print("Successfully logged in");
+
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => home_page()));
+        }
+        else {
+          print("Some error Occured");
+        }
       }
     }
     //////////////////////////////////////////////////////////////////

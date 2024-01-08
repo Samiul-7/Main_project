@@ -1,3 +1,4 @@
+import 'package:aust_pharma1/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 
@@ -151,7 +152,7 @@ class home_page extends StatelessWidget {
       backgroundColor: Colors.white70,
         drawer: Drawer(
           child: Container(
-            color: Colors.redAccent,
+            color: Colors.greenAccent,
             child: ListView(
               children: [
                 DrawerHeader(
@@ -178,58 +179,41 @@ class home_page extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Welcome User"),
+                          Text("Welcome"),
                           SizedBox(
                             height: 7,
                           ),
-                          Container(
-                            height: 30,
-                            child: OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  side: BorderSide(
-
-                                    width: 2,
-                                  )
-                                )
-
-                              ),
-                              onPressed: (){},
-                              child: Text("Log in"),
-
-
-
-                            ),
-
-
-
-
-                            ),
-
-
                         ],
                       )
-
                     ],
                   ),
-
-
                 ),
-                listTile(Icons.home_outlined, "Home"),
-                listTile(Icons.shopping_cart, "Review Cart"),
-                listTile(Icons.person_2_outlined, "Profile"),
-                listTile(Icons.notifications_outlined, "Notification"),
-                listTile(Icons.star_outline, "Rating"),
-                listTile(Icons.favorite_outlined, "Wish list"),
-                listTile(Icons.copy_all_outlined, "Complain Box"),
-                listTile(Icons.question_mark_outlined, "FAQ"),
+                ListTile(
+                  leading: Icon(Icons.person_2_outlined),
+                  title: Text('Profile'),
+                  //subtitle: Text('A celestial body shining in the sky.'),
+                  //trailing: Icon(Icons.arrow_forward),
+                  onTap: () {
+                    // Handle tap on the ListTile
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (_)=>ProfilePage()));
+                    ;
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.shopping_cart),
+                  title: Text('Review Cart'),
+                  //subtitle: Text('A celestial body shining in the sky.'),
+                  //trailing: Icon(Icons.arrow_forward),
+                  onTap: () {
+                    // Handle tap on the ListTil
+                  },
+                ),
                 Container(
                   height: 350,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
-
                       children: [
                         SizedBox(
                           height: 20,
@@ -262,12 +246,10 @@ class home_page extends StatelessWidget {
                             Text("shafin@gmail.com"),
                           ],
                         )
-
                       ],
                     ),
                   ),
                 )
-
               ],
             ),
           )
@@ -280,35 +262,15 @@ class home_page extends StatelessWidget {
 
             children: [
               SizedBox(width: 10),
-             /* DropdownButton<String>(
-                value: selectedcategory,
-                onChanged: (String? newValue){
-                  if(newValue != null){
-                    selectedcategory=newValue;
-                  }
-                },
-                items: categories.map<DropdownMenuItem<String>>((String value){
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-
-              */
               Text('AUST Pharma',
                   style: TextStyle(
                       fontSize: 30,
                       color: Colors.white
                   )
               ),
-
             ],
           ),
-
-
         ),
-
         body: SingleChildScrollView(
           child: Column(
               children: [
@@ -321,15 +283,11 @@ class home_page extends StatelessWidget {
                         decoration: InputDecoration(
                           hintText: 'Search...',
                         ),
-
                       ),
                       SizedBox(height: 16),
-
                     ],
                   ),
-
                 ),
-
                 Container(
                     height: 200,
                     child: ListView.builder(
@@ -345,12 +303,10 @@ class home_page extends StatelessWidget {
                               image: NetworkImage(adImages[index]),
                               fit: BoxFit.cover,
                             ),
-
                           ),
                         );
                       },
                     )
-
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8),
