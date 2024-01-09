@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'homepage.dart';
+import 'login_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -182,7 +183,25 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],),
 
                     const SizedBox(height: 180,),
-                    ElevatedButton(onPressed:
+
+                    ElevatedButton(onPressed:logout,
+                      // child: Text('Back',style: TextStyle(fontSize: 15),)
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.grey[900]), // Change button color
+                        minimumSize: MaterialStateProperty.all(Size(150, 40)), // Change button size
+                        padding: MaterialStateProperty.all(EdgeInsets.all(15)), // Adjust internal padding
+                        textStyle: MaterialStateProperty.all(
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold), // Adjust text style
+                        ),
+                      ),
+                      child: const Text('Logout',
+                        style: TextStyle(color: Colors.white,fontStyle:FontStyle.italic),
+                      ),
+                    ),
+
+                    const SizedBox(height: 10,),
+                    ElevatedButton(
+                      onPressed:
                         () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (_)=>home_page()));
@@ -208,5 +227,16 @@ class _ProfilePageState extends State<ProfilePage> {
           )
       ),
     );
+
   }
+  logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (_)=>login_page()));
+    } catch (e) {
+      print(e);
+    }
+  }
+
 }

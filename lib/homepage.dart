@@ -1,116 +1,175 @@
+import 'package:aust_pharma1/Widgets/single_product.dart';
+import 'package:aust_pharma1/login_page.dart';
 import 'package:flutter/material.dart';
 import 'categoryPage_1.dart';
 import 'categoryPage_2.dart';
 import 'categoryPage_3.dart';
 import 'profile_page.dart';
 class home_page extends StatelessWidget {
-  Widget singleProducts()
+
+  Widget _medicine(context)
   {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5),
-      height: 230,
-      width: 160,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Padding(
-
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 5,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Medicine',style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),),
+              GestureDetector(
+                onTap: () {
+                  // Navigate to Category1Page when 'View All' is clicked
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => categoryPage_1()),
+                  );
+                },
+                child: Text(
+                  'View All',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
 
-              child: Image.asset("assets/napa.png"),
-              flex: 2,),
-            Expanded(
-              flex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+              children: [
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
 
-                  Text("Napa 500",style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-
-                  ),
-                  Text("50 Tk per pack",style: TextStyle(
-                    color: Colors.grey,
-
-                  ),
-
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.only(left: 5),
-                          height: 30,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(child: Text(
-                                "1 Box",
-                                style: TextStyle(fontSize: 10),
-                              )),
-                              Center(
-                                child: Icon(
-                                  Icons.arrow_drop_down,
-                                  size: 20,
-                                  color: Colors.redAccent,
-                                ),
-                              )
-
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 30,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.remove,
-                                size: 15,
-                                color: Colors.orangeAccent,),
-                              Text("1"),
-
-                              Icon(Icons.add,
-                                size: 15,
-                                color: Colors.orangeAccent,)
-                            ],
-                          ),
-
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),)
-          ],
+              ],
+            ),
+          ),
         ),
-      ),
 
+      ],
     );
   }
+  Widget _babyProduct(context)
+  {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Baby product',style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),),
+              GestureDetector(
+                onTap: () {
+                  // Navigate to Category1Page when 'View All' is clicked
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => categoryPage_1()),
+                  );
+                },
+                child: Text(
+                  'View All',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+
+              children: [
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+
+              ],
+            ),
+          ),
+        ),
+
+      ],
+    );
+  }
+  Widget _womanCare(context)
+  {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Woman Care',style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),),
+              GestureDetector(
+                onTap: () {
+                  // Navigate to Category1Page when 'View All' is clicked
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => categoryPage_1()),
+                  );
+                },
+                child: Text(
+                  'View All',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+
+              children: [
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/napa.png", "Napa 500", (){}),
+
+              ],
+            ),
+          ),
+        ),
+
+      ],
+    );
+  }
+
   Widget listTile(IconData icon,String title)
   {
     return OutlinedButton(
@@ -180,18 +239,47 @@ class home_page extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Welcome",style: TextStyle(
+                          Text("Welcome ",style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),),
                           SizedBox(
                             height: 7,
                           ),
+                          Container(
+                            height: 30,
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                      side: BorderSide(
+
+                                        width: 2,
+                                      )
+                                  )
+
+                              ),
+                              onPressed: (){
+                                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                    builder: (_)=>login_page()));
+                              },
+                              child: Text("Log in"),
+
+
+
+                            ),
+
+
+
+
+                          ),
+
                         ],
                       )
                     ],
                   ),
                 ),
+
                 ListTile(
                   leading: Icon(Icons.person_2_outlined),
                   title: Text('Profile'),
@@ -208,6 +296,10 @@ class home_page extends StatelessWidget {
                     print("Review page is loading. . . .");
                   },
                 ),
+                listTile(Icons.star_outline, "Rating"),
+                listTile(Icons.favorite_outlined, "Wish list"),
+                listTile(Icons.copy_all_outlined, "Complain Box"),
+                listTile(Icons.question_mark_outlined, "FAQ"),
                 Container(
                   height: 350,
                   child: Padding(
@@ -307,141 +399,9 @@ class home_page extends StatelessWidget {
                       },
                     )
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Catagory 1',style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),),
-                  GestureDetector(
-                    onTap: () {
-                      // Navigate to Category1Page when 'View All' is clicked
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => categoryPage_1()),
-                      );
-                    },
-                    child: Text(
-                      'View All',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-
-                      children: [
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Catagory 2',style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),),
-                      GestureDetector(
-                        onTap: () {
-                          // Navigate to Category1Page when 'View All' is clicked
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => categoryPage_2()),
-                          );
-                        },
-                        child: Text(
-                          'View All',
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-
-                      children: [
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Catagory 3',style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),),
-                      GestureDetector(
-                        onTap: () {
-                          // Navigate to Category1Page when 'View All' is clicked
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => categoryPage_3()),
-                          );
-                        },
-                        child: Text(
-                          'View All',
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-
-                      children: [
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-                        singleProducts(),
-
-                      ],
-                    ),
-                  ),
-                ),
+               _medicine(context),
+                _womanCare(context),
+                _babyProduct(context),
 
 
 
