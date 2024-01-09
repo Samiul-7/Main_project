@@ -165,9 +165,9 @@ class home_page extends StatelessWidget {
                         radius: 43,
                         child: CircleAvatar(
                           child:Container(
-                            height: 70,
-                            width: 70,
-                             child: Image.asset("assets/github.png"),
+                            height: 60,
+                            width: 60,
+                             child: Image.asset("assets/abstract.png"),
 
                           ),
                           backgroundColor: Colors.orangeAccent,
@@ -180,7 +180,10 @@ class home_page extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Welcome"),
+                          Text("Welcome",style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),),
                           SizedBox(
                             height: 7,
                           ),
@@ -192,10 +195,7 @@ class home_page extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.person_2_outlined),
                   title: Text('Profile'),
-                  //subtitle: Text('A celestial body shining in the sky.'),
-                  //trailing: Icon(Icons.arrow_forward),
                   onTap: () {
-                    // Handle tap on the ListTile
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (_)=>ProfilePage()));
                     ;
@@ -204,10 +204,8 @@ class home_page extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.shopping_cart),
                   title: Text('Review Cart'),
-                  //subtitle: Text('A celestial body shining in the sky.'),
-                  //trailing: Icon(Icons.arrow_forward),
                   onTap: () {
-                    // Handle tap on the ListTil
+                    print("Review page is loading. . . .");
                   },
                 ),
                 Container(

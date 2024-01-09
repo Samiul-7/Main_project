@@ -83,10 +83,6 @@ class _login_pageState extends State<login_page> {
                   SizedBox(width:100,),
                   ElevatedButton(
                   onPressed:_signIn,
-                  //     () {
-                  //   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  //       builder: (_)=>home_page()));
-                  // },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black), // Change button color
                     minimumSize: MaterialStateProperty.all(Size(150, 40)), // Change button size
@@ -151,20 +147,6 @@ class _login_pageState extends State<login_page> {
                   ),
 
                 ),
-                // Container(
-                //   height: 30,
-                //   width: 30,
-                //   child: InkWell(
-                //     child: Image(
-                //       image: AssetImage('assets/twitter.png'),
-                //     ),
-                //     onTap: (){
-                //       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                //           builder: (_)=>home_page()));
-                //     },
-                //   ),
-                //
-                // ),
                 Container(
                   height: 30,
                   width: 30,
@@ -179,20 +161,6 @@ class _login_pageState extends State<login_page> {
                   ),
 
                 ),
-                // Container(
-                //   height: 30,
-                //   width: 30,
-                //   child: InkWell(
-                //     child: Image(
-                //       image: AssetImage('assets/github.png'),
-                //     ),
-                //     onTap: (){
-                //       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                //           builder: (_)=>home_page()));
-                //     },
-                //   ),
-                //
-                // )
               ],
             ),
 
@@ -218,24 +186,6 @@ class _login_pageState extends State<login_page> {
               ],
             ),
             SizedBox(height: 50,),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Text('Sign in as a',
-            //       style: TextStyle(color: Colors.grey.shade900,fontSize: 20),
-            //     ),
-            //     SizedBox(width:10,),
-            //     GestureDetector(
-            //       child: Text('Guest !',
-            //         style: TextStyle(color: Colors.blue.shade900,fontWeight: FontWeight.bold,fontSize: 20),
-            //       ),
-            //       onTap: (){
-            //         Navigator.of(context).pushReplacement(MaterialPageRoute(
-            //             builder: (_)=>home_page()));
-            //       },
-            //     ),
-            //   ],
-            // ),
           ],
 
         ),
