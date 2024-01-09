@@ -1,7 +1,8 @@
-import 'package:aust_pharma1/profile_page.dart';
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-
+import 'categoryPage_1.dart';
+import 'categoryPage_2.dart';
+import 'categoryPage_3.dart';
+import 'profile_page.dart';
 class home_page extends StatelessWidget {
   Widget singleProducts()
   {
@@ -317,11 +318,22 @@ class home_page extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),),
-                      Text('View All',style: TextStyle(
+                  GestureDetector(
+                    onTap: () {
+                      // Navigate to Category1Page when 'View All' is clicked
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => categoryPage_1()),
+                      );
+                    },
+                    child: Text(
+                      'View All',
+                      style: TextStyle(
                         color: Colors.red,
                         fontSize: 20,
-                      ),),
-
+                      ),
+                    ),
+                  ),
                     ],
                   ),
                 ),
@@ -351,11 +363,22 @@ class home_page extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),),
-                      Text('View All',style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 20,
-                      ),),
-
+                      GestureDetector(
+                        onTap: () {
+                          // Navigate to Category1Page when 'View All' is clicked
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => categoryPage_2()),
+                          );
+                        },
+                        child: Text(
+                          'View All',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -385,11 +408,22 @@ class home_page extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),),
-                      Text('View All',style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 20,
-                      ),),
-
+                      GestureDetector(
+                        onTap: () {
+                          // Navigate to Category1Page when 'View All' is clicked
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => categoryPage_3()),
+                          );
+                        },
+                        child: Text(
+                          'View All',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
