@@ -1,5 +1,6 @@
 import 'package:animated_switch/animated_switch.dart';
 import 'package:aust_pharma1/Widgets/Background.dart';
+import 'package:aust_pharma1/admin_page.dart';
 import 'package:aust_pharma1/firebase_auth_implement/firebase_auth_services.dart';
 import 'package:aust_pharma1/login_page.dart';
 import 'package:aust_pharma1/usuables/text_field.dart';
@@ -300,34 +301,6 @@ class _SignUpScreenState extends State<signup_page>{
                                       width: 30,
                                       child: InkWell(
                                         child: Image(
-                                          image: AssetImage('assets/facebook.png'),
-                                        ),
-                                        onTap: (){
-                                          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                              builder: (_)=>home_page()));
-                                        },
-                                      ),
-
-                                    ),
-                                    Container(
-                                      height: 30,
-                                      width: 30,
-                                      child: InkWell(
-                                        child: Image(
-                                          image: AssetImage('assets/twitter.png'),
-                                        ),
-                                        onTap: (){
-                                          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                              builder: (_)=>home_page()));
-                                        },
-                                      ),
-
-                                    ),
-                                    Container(
-                                      height: 30,
-                                      width: 30,
-                                      child: InkWell(
-                                        child: Image(
                                           image: AssetImage('assets/google.png'),
                                         ),
                                         onTap: (){
@@ -337,24 +310,8 @@ class _SignUpScreenState extends State<signup_page>{
                                       ),
 
                                     ),
-                                    Container(
-                                      height: 30,
-                                      width: 30,
-                                      child: InkWell(
-                                        child: Image(
-                                          image: AssetImage('assets/github.png'),
-                                        ),
-                                        onTap: (){
-                                          Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                              builder: (_)=>home_page()));
-                                        },
-                                      ),
-
-                                    )
                                   ],
                                 ),
-                                                
-                                                
                               ],
                             ),
                           ),
@@ -380,27 +337,45 @@ class _SignUpScreenState extends State<signup_page>{
     String email=email_control.text;
     String pass=pass_control.text;
     String address=address_control.text;
-
+    String uid=id;
+    int x=0;
+    if(pass=='admin@@' && email=='admin26@gmail.com') {
+      x=1;
+    }
     User? user = await _auth.signUpWithEmailAndPassword(email, pass);
     
-    if (user!=Null){
+    if (user!=Null && x==0){
       print("User successfully created");
       userdetail(
           name_control.text.trim(),
           address_control.text.trim(),
           email_control.text.trim(),
           pass_control.text.trim(),
-
       );
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //       const SnackBar(
-      //         content: Text('Welcome User'),
-      //       ),
-      //     );
+      ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Welcome User'),
+            ),
+          );
       Navigator.push(context,MaterialPageRoute(builder: (context) => home_page()));
     }
-    else{
+    else if(user!=null && x==1){
+      userdetail_1(
+        name_control.text.trim(),
+        address_control.text.trim(),
+        email_control.text.trim(),
+        pass_control.text.trim(),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Welcome Admin'),
+        ),
+      );
+      Navigator.push(context,MaterialPageRoute(builder: (context) => adminP()));
+    }
+    else {
       print("Some error happened");
+      }
     }
     
   }
@@ -410,7 +385,19 @@ class _SignUpScreenState extends State<signup_page>{
       'Address' : address,
       'E-mail' : email,
       'Password' : password,
+      'UID' : FirebaseAuth.instance.currentUser?.uid,
     });
   }
+
   /////////////////////////////////////////////////////
-}
+  Future userdetail_1(String name,String address,String email,String password) async{
+    await FirebaseFirestore.instance.collection('Admin').doc(FirebaseAuth.instance.currentUser?.uid).set({
+      'Name' : name,
+      //'Address' : address,
+      'E-mail' : email,
+      'Password' : password,
+      'UID' : FirebaseAuth.instance.currentUser?.uid,
+    });
+  }
+  ///////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////

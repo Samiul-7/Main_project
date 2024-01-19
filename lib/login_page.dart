@@ -23,9 +23,9 @@ class _login_pageState extends State<login_page> {
 
   //////////////////////////////////////////////////////
 
-  final A_email='admin123@gmail.com';
-  final A_pass='admin123';
 
+  final A_pass='admin@@';
+  final A_email='admin26@gmail.com';
 
   final username_controller=TextEditingController();
 
@@ -100,7 +100,6 @@ class _login_pageState extends State<login_page> {
               ),
             ),
             SizedBox(height: 50,),
-
             //////////////////////////////////////////////or continue with
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -138,20 +137,6 @@ class _login_pageState extends State<login_page> {
                   width: 30,
                   child: InkWell(
                     child: Image(
-                      image: AssetImage('assets/facebook.png'),
-                    ),
-                    onTap: (){
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (_)=>home_page()));
-                    },
-                  ),
-
-                ),
-                Container(
-                  height: 30,
-                  width: 30,
-                  child: InkWell(
-                    child: Image(
                       image: AssetImage('assets/google.png'),
                     ),
                     onTap: (){
@@ -163,9 +148,7 @@ class _login_pageState extends State<login_page> {
                 ),
               ],
             ),
-
             SizedBox(height: 50,),
-
             ////////////////////////////////////////////not a member? register now
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -205,17 +188,15 @@ class _login_pageState extends State<login_page> {
               ],
             ),
           ],
-
         ),
       ),
     );;
   }
-
   /////////////////////////////////////////////////////////////////////
     void _signIn() async {
       String email = username_controller.text;
       String password = pass_controller.text;
-      if (email == A_email && password == A_pass) {
+      if ( password == A_pass && email==A_email) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => adminP()));
       }

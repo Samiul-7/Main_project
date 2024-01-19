@@ -1,4 +1,5 @@
 import 'package:aust_pharma1/Widgets/single_product.dart';
+import 'package:aust_pharma1/chat_page.dart';
 import 'package:aust_pharma1/login_page.dart';
 import 'package:flutter/material.dart';
 import 'categoryPage_1.dart';
@@ -216,7 +217,6 @@ class home_page extends StatelessWidget {
             child: ListView(
               children: [
                 DrawerHeader(
-
                   child: Row(
                     children: [
                       CircleAvatar(
@@ -257,23 +257,14 @@ class home_page extends StatelessWidget {
                                         width: 2,
                                       )
                                   )
-
                               ),
                               onPressed: (){
                                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                                     builder: (_)=>login_page()));
                               },
                               child: Text("Log in"),
-
-
-
                             ),
-
-
-
-
                           ),
-
                         ],
                       )
                     ],
@@ -286,6 +277,15 @@ class home_page extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (_)=>ProfilePage()));
+                    ;
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.chat),
+                  title: Text('Chat With Us'),
+                  onTap: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (_)=>chat_page()));
                     ;
                   },
                 ),

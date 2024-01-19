@@ -7,10 +7,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'chat_page.dart';
-
-class adminP extends StatelessWidget {
-  const adminP({super.key});
+class Test extends StatelessWidget {
+  const Test ({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +16,7 @@ class adminP extends StatelessWidget {
       appBar: AppBar(title:Text('AdminPage',style: TextStyle(fontSize: 20),),
       ),
       body:Container(
-        child: Column(
-          children: [
-            Text("Hello"),
-          ],
-        ),
+        child: Text(''),
       ),
     );
   }
