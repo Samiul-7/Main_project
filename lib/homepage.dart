@@ -48,65 +48,11 @@ class home_page extends StatelessWidget {
             child: Row(
 
               children: [
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-
-              ],
-            ),
-          ),
-        ),
-
-      ],
-    );
-  }
-  Widget _babyProduct(context)
-  {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Baby product',style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),),
-              GestureDetector(
-                onTap: () {
-                  // Navigate to Category1Page when 'View All' is clicked
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => categoryPage_1()),
-                  );
-                },
-                child: Text(
-                  'View All',
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-
-              children: [
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/vitE1.png", "Vitamin E", (){}),
+                Single_product("assets/vitC1.png", "Vitamin C", (){}),
+                Single_product("assets/vitrum1.png", "Vitrum", (){}),
+                Single_product("assets/vitB121.png", "Vitamin B12", (){}),
+                Single_product("assets/centrum1.png", "Centrum", (){}),
 
               ],
             ),
@@ -126,7 +72,7 @@ class home_page extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Woman Care',style: TextStyle(
+              Text('Women Care',style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),),
@@ -135,7 +81,7 @@ class home_page extends StatelessWidget {
                   // Navigate to Category1Page when 'View All' is clicked
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => categoryPage_1()),
+                    MaterialPageRoute(builder: (context) => categoryPage_2()),
                   );
                 },
                 child: Text(
@@ -156,12 +102,65 @@ class home_page extends StatelessWidget {
             child: Row(
 
               children: [
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
-                Single_product("assets/napa.png", "Napa 500", (){}),
+                Single_product("assets/ace.jpeg", "ACE", (){}),
+                Single_product("assets/fliban.jpeg", "Fliban", (){}),
+                Single_product("assets/pad.jpeg", "Freedom pad", (){}),
+                Single_product("assets/plus.jpeg", "Women Plus", (){}),
+                Single_product("assets/shampoo.jpeg", "Biotin", (){}),
 
+              ],
+            ),
+          ),
+        ),
+
+      ],
+    );
+  }
+  Widget _babyProduct(context)
+  {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Baby Products',style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),),
+              GestureDetector(
+                onTap: () {
+                  // Navigate to Category1Page when 'View All' is clicked
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => categoryPage_3()),
+                  );
+                },
+                child: Text(
+                  'View All',
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+
+              children: [
+                Single_product("assets/aveeno.jpg", "Aveeno", (){}),
+                Single_product("assets/dymadon.png", "Dymadon", (){}),
+                Single_product("assets/babySyrup.png", "Cough Syrup", (){}),
+                Single_product("assets/diaper.jpeg", "Diaper", (){}),
+                Single_product("assets/dropper.jpg", "Dropper", (){}),
               ],
             ),
           ),

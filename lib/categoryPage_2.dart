@@ -7,28 +7,28 @@ import 'homepage.dart';
 
 class categoryPage_2 extends StatelessWidget {
   final List<String> imagePaths = [
-    'assets/vitE1.png',
-    'assets/vitC1.png',
-    'assets/vitrum1.png',
-    'assets/centrum1.png',
-    'assets/vitB121.png',
-    'assets/revital1.png',
+    'assets/ace.jpeg',
+    'assets/fliban.jpeg',
+    'assets/pad.jpeg',
+    'assets/plus.jpeg',
+    'assets/shampoo.jpeg',
+    'assets/champion.png',
   ];
 
   final List<String> imageNames = [
-    'Vitamin E',
-    'Vitamin C',
-    'Vitrum',
-    'Centrum',
-    'Vitamin B12',
-    'Revital',
+    'Ace',
+    'Fliban',
+    'Freedom Pad',
+    'Women Plus',
+    'Biotin',
+    'Syrup',
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Categories_2'),
+        title: Text('Women Care'),
 
       ),
       body: Column(
