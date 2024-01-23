@@ -83,6 +83,20 @@ flutter:
      - assets/logo_1.png
      - assets/napa.png
      - assets/Profile.png
+     - assets/ace.jpeg
+     - assets/fliban.jpeg
+     - assets/pad.jpeg
+     - assets/plus.jpeg
+     - assets/shampoo.jpeg
+     - assets/champion.png
+     - assets/aveeno.jpg
+     - assets/babySyrup.png
+     - assets/diaper.jpeg
+     - assets/dropper.jpg
+     - assets/feeder.png
+     - assets/dymadon.png
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

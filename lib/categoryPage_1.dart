@@ -28,7 +28,7 @@ class categoryPage_1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Categories_1'),
+        title: Text('Medicines'),
 
       ),
       body: Column(
