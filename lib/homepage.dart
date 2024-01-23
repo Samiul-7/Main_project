@@ -277,7 +277,7 @@ class home_page extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (_)=>ProfilePage()));
-                    ;
+
                   },
                 ),
                 ListTile(

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 enum SinginCharacter{fill,outline}
 class product_overview extends StatefulWidget{
-  const product_overview ({super.key});
+
+  //const product_overview ({super.key});
+  final String productName;
+  final String productImage;
+
+
+  product_overview(this.productName, this.productImage);
 
   @override
   State<product_overview> createState() => _product_overviewState();
@@ -63,7 +69,7 @@ class _product_overviewState extends State<product_overview>
           child: Column(
           children: [
             ListTile(
-              title: Text("Napa 500"),
+              title: Text(widget.productName),
       subtitle: Text("100 Taka"),
 
 
@@ -71,7 +77,7 @@ class _product_overviewState extends State<product_overview>
           Container(
           height: 250,
           padding: EdgeInsets.all(40),
-          child: Image.asset("assets/napa.png"),
+          child: Image.asset(widget.productImage),
 
           ),
             Container(

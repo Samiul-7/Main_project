@@ -29,7 +29,10 @@ class Single_product extends StatelessWidget{
       child: InkWell(
         onTap: (){
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (_)=>product_overview()));
+              builder: (_)=>product_overview(
+                product_name,product_image
+              )));
+
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
