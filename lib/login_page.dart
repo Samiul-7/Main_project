@@ -59,7 +59,7 @@ class _login_pageState extends State<login_page> {
 
             my_text_field(
               controller:username_controller,
-              hintText: 'Username',
+              hintText: 'E-mail',
               obscureText: false,
             ),
 

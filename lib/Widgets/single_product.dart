@@ -5,9 +5,10 @@ import '../profile_page.dart';
 class Single_product extends StatelessWidget{
   final String product_image;
   final String product_name;
+  final String productPrice;
   final Function onTap;
 
-  Single_product(this.product_image, this.product_name, this.onTap);
+  Single_product(this.product_image, this.product_name, this.onTap, this.productPrice);
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +28,16 @@ class Single_product extends StatelessWidget{
         vertical: 5,
       ),
       child: InkWell(
-        onTap: (){
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (_)=>product_overview(
-                product_name,product_image
-              )));
-
-        },
+        // onTap: (){
+        //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+        //       builder: (_)=>product_overview(
+        //         product_name,product_image,productPrice,
+        //       )));
+        //
+        // },
+        onTap: () =>Navigator.push(context, MaterialPageRoute(builder: (context){
+          return product_overview(product_name,product_image,productPrice,);
+        },),),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -54,7 +58,7 @@ class Single_product extends StatelessWidget{
                   ),
 
                   ),
-                  Text("50 Tk per pack",style: TextStyle(
+                  Text(productPrice,style: TextStyle(
                     color: Colors.grey,
 
                   ),

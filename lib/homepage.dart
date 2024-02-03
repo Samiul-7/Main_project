@@ -1,7 +1,11 @@
+import 'package:aust_pharma1/Cart_page_1.dart';
 import 'package:aust_pharma1/Widgets/single_product.dart';
 import 'package:aust_pharma1/chat_page.dart';
 import 'package:aust_pharma1/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'MedTile.dart';
+import 'cart_page.dart';
 import 'categoryPage_1.dart';
 import 'categoryPage_2.dart';
 import 'categoryPage_3.dart';
@@ -41,24 +45,38 @@ class home_page extends StatelessWidget {
             ],
           ),
         ),
+        // Expanded(
+        //     child:Consumer<CartModel>(
+        //       builder: (context,value,child){
+        //         return GridView.builder(
+        //             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        //
+        //             itemBuilder:(context,index){
+        //               return MedTile(
+        //                medName: value.meds[index][0],
+        //                 medPrice: value.meds[index][1],
+        //                 medImg: value.meds[index][2],
+        //               ) ;
+        //             }
+        //         );
+        //       }
+        //     )
+        // )
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-
               children: [
-                Single_product("assets/vitE1.png", "Vitamin E", (){}),
-                Single_product("assets/vitC1.png", "Vitamin C", (){}),
-                Single_product("assets/vitrum1.png", "Vitrum", (){}),
-                Single_product("assets/vitB121.png", "Vitamin B12", (){}),
-                Single_product("assets/centrum1.png", "Centrum", (){}),
-
+                Single_product("assets/vitE1.png", "Vitamin E", (){},"50TK",),
+                Single_product("assets/vitC1.png", "Vitamin C", (){},"50TK",),
+                Single_product("assets/vitrum1.png", "Vitrum", (){},"50TK",),
+                Single_product("assets/vitB121.png", "Vitamin B12", (){},"50TK",),
+                Single_product("assets/centrum1.png", "Centrum", (){},"50TK",),
               ],
             ),
           ),
         ),
-
       ],
     );
   }
@@ -102,11 +120,11 @@ class home_page extends StatelessWidget {
             child: Row(
 
               children: [
-                Single_product("assets/ace.jpeg", "ACE", (){}),
-                Single_product("assets/fliban.jpeg", "Fliban", (){}),
-                Single_product("assets/pad.jpeg", "Freedom pad", (){}),
-                Single_product("assets/plus.jpeg", "Women Plus", (){}),
-                Single_product("assets/shampoo.jpeg", "Biotin", (){}),
+                Single_product("assets/ace.jpeg", "ACE", (){},"50TK",),
+                Single_product("assets/fliban.jpeg", "Fliban", (){},"50TK",),
+                Single_product("assets/pad.jpeg", "Freedom pad", (){},"50TK",),
+                Single_product("assets/plus.jpeg", "Women Plus", (){},"50TK",),
+                Single_product("assets/shampoo.jpeg", "Biotin", (){},"50TK",),
 
               ],
             ),
@@ -154,13 +172,12 @@ class home_page extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-
               children: [
-                Single_product("assets/aveeno.jpg", "Aveeno", (){}),
-                Single_product("assets/dymadon.png", "Dymadon", (){}),
-                Single_product("assets/babySyrup.png", "Cough Syrup", (){}),
-                Single_product("assets/diaper.jpeg", "Diaper", (){}),
-                Single_product("assets/dropper.jpg", "Dropper", (){}),
+                Single_product("assets/aveeno.jpg", "Aveeno", (){},"50TK",),
+                Single_product("assets/dymadon.png", "Dymadon", (){},"50TK",),
+                Single_product("assets/babySyrup.png", "Cough Syrup", (){},"50TK",),
+                Single_product("assets/diaper.jpeg", "Diaper", (){},"50TK",),
+                Single_product("assets/dropper.jpg", "Dropper", (){},"50TK",),
               ],
             ),
           ),
@@ -252,15 +269,18 @@ class home_page extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15),
                                       side: BorderSide(
-
                                         width: 2,
                                       )
                                   )
                               ),
                               onPressed: (){
-                                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                    builder: (_)=>login_page()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context){
+                                  return login_page();
+                                },),);
                               },
+                              // onTap: () =>Navigator.push(context, MaterialPageRoute(builder: (context){
+                              //   return ProfilePage();
+                              // },),),
                               child: Text("Log in"),
                             ),
                           ),
@@ -273,27 +293,33 @@ class home_page extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.person_2_outlined),
                   title: Text('Profile'),
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>ProfilePage()));
-
-                  },
+                  // onTap: () {
+                  //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  //       builder: (_)=>ProfilePage()));
+                  //
+                  // },
+                  onTap: () =>Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return ProfilePage();
+                  },),),
                 ),
                 ListTile(
                   leading: Icon(Icons.chat),
                   title: Text('Chat With Us'),
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>chat_page()));
-                    ;
-                  },
+                  // onTap: () {
+                  //   Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  //       builder: (_)=>chat_page()));
+                  //   ;
+                  // },
+                  onTap: () =>Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return chat_page();
+                  },),),
                 ),
                 ListTile(
                   leading: Icon(Icons.shopping_cart),
                   title: Text('Review Cart'),
-                  onTap: () {
-                    print("Review page is loading. . . .");
-                  },
+                  onTap: () =>Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return Cart_page();
+                  },),),
                 ),
                 listTile(Icons.star_outline, "Rating"),
                 listTile(Icons.favorite_outlined, "Wish list"),

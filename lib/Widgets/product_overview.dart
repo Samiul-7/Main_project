@@ -5,9 +5,10 @@ class product_overview extends StatefulWidget{
   //const product_overview ({super.key});
   final String productName;
   final String productImage;
+  final String productPrice;
 
 
-  product_overview(this.productName, this.productImage);
+  product_overview(this.productName, this.productImage,this.productPrice);
 
   @override
   State<product_overview> createState() => _product_overviewState();
@@ -27,27 +28,22 @@ class _product_overviewState extends State<product_overview>
           Icon(iconData,size: 17,color:iconColor),
           SizedBox(width: 5,),
           Text(title,style: TextStyle(color: Colors.black),)
-
-
-
         ],
       ),
-
-
     ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Row(
-        children: [
-          bottommNavigatorBar(Colors.grey, Colors.deepOrange,"Add to Wishlist", Icons.favorite_outlined),
-          bottommNavigatorBar(Colors.grey, Colors.orangeAccent,"Add to Cart", Icons.shop_2_outlined),
-
-
-        ],
-      ) ,
+      // bottomNavigationBar: Row(
+      //   children: [
+      //     bottommNavigatorBar(Colors.grey, Colors.deepOrange,"Add to Wishlist", Icons.favorite_outlined),
+      //     bottommNavigatorBar(Colors.grey, Colors.orangeAccent,"Add to Cart", Icons.shop_2_outlined),
+      //
+      //
+      //   ],
+      // ) ,
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
 
@@ -70,15 +66,11 @@ class _product_overviewState extends State<product_overview>
           children: [
             ListTile(
               title: Text(widget.productName),
-      subtitle: Text("100 Taka"),
-
-
           ),
           Container(
-          height: 250,
+          height: 200,
           padding: EdgeInsets.all(40),
           child: Image.asset(widget.productImage),
-
           ),
             Container(
              padding: EdgeInsets.symmetric(horizontal: 20),
@@ -87,7 +79,6 @@ class _product_overviewState extends State<product_overview>
               style: TextStyle(color: Colors.black,
               fontWeight: FontWeight.w600),
               ),
-
             ),
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
@@ -97,9 +88,8 @@ class _product_overviewState extends State<product_overview>
                   Row(
                     children: [
                       CircleAvatar(
-                        radius: 3,
+                        radius: 0.5,
                         backgroundColor: Colors.redAccent,
-
                       ),
                       Radio(
                         value: SinginCharacter.fill,
@@ -109,52 +99,21 @@ class _product_overviewState extends State<product_overview>
                           setState(() {
                             _character = value!;
                           });
-
                         },
                       )
                     ],
                   ),
-                  Text("100 Tk"),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 10,
-
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-
-                      borderRadius: BorderRadius.circular(30),
-
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.add,
-                        size: 17,
-                        color: Colors.orange,),
-                        Text("ADD",style: TextStyle(
-                          color: Colors.red,
-
-
-                        ),)
-
-                      ],
-                    ),
-                  )
+                  Text(widget.productPrice+'  TK',style: TextStyle(fontWeight: FontWeight.bold),),
                 ],
               ),
             )
-
         ],
       ),
       )),
           Expanded
             (
             //flex: 1,
-
               child: Container(
-                padding: EdgeInsets.all(20),
                 width: double.infinity,
                 child: SingleChildScrollView(
                   child: Column(
@@ -165,30 +124,15 @@ class _product_overviewState extends State<product_overview>
                         fontSize: 18,
                       ),),
                       SizedBox(height: 10,),
-                      Text("Napa 500 mg is indicated for fever, common cold and influenza, headache, toothache, earache, bodyache, myalgia, neuralgia, dysmenorrhoea, sprains, colic pain, back pain, post-operative pain, postpartum pain, inflammatory pain and post vaccination pain in children. It is also indicated for rheumatic & osteoarthritic pain and stiffness of joints.",style: TextStyle(
+                      Text(widget.productName+" 500 mg is indicated for fever, common cold and influenza, headache, toothache, earache, bodyache, myalgia, neuralgia, dysmenorrhoea, sprains, colic pain, back pain, post-operative pain, postpartum pain, inflammatory pain and post vaccination pain in children. It is also indicated for rheumatic & osteoarthritic pain and stiffness of joints.",style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 15,
                         color: Colors.black,
                       ),),
-                      Text("Indication",style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                      ),),
-                      Text("Napa 500 mg is indicated for fever, common cold and influenza, headache, toothache, earache, bodyache, myalgia, neuralgia, dysmenorrhoea, sprains, colic pain, back pain, post-operative pain, postpartum pain, inflammatory pain and post vaccination pain in children. It is also indicated for rheumatic & osteoarthritic pain and stiffness of joints.",style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 15,
-                        color: Colors.black,
-                      ),),
-                  
-                  
                     ],
-                  
                   ),
                 ),
-
-
-
-                        ))
+              ))
         ],
       ),
     );
