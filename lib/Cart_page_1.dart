@@ -1,7 +1,7 @@
 import 'package:aust_pharma1/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'payment_page.dart';
 class Cart_page extends StatelessWidget {
   const Cart_page({super.key});
 
@@ -44,18 +44,51 @@ class Cart_page extends StatelessWidget {
                   ),
               ),
               Padding(
-                  padding: EdgeInsets.all(36),
+                padding: EdgeInsets.all(36),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   padding: EdgeInsets.all(24),
-                  child: Row(
+                  child: Column(
                     children: [
-                      Text('Total Price: ',style: TextStyle(fontWeight:FontWeight.bold,fontSize: 20),),
-                      SizedBox(width: 20,),
-                      Text(value.calculateTotal(),style:TextStyle(fontWeight:FontWeight.bold,fontSize: 20),),
+                      Row(
+                        children: [
+                          Text(
+                            'Total Price: ',
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          SizedBox(width: 20),
+                          Text(
+                            value.calculateTotal(),
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      TextButton(
+                        onPressed: () {
+                          // Handle the "Pay Now" button click
+                          // You can navigate to the payment page or perform any other action.
+                          // For simplicity, let's navigate to the PaymentPage.
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => payment_page()),
+                          );
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.green,
+                        ),
+                        child: Text(
+                          'Pay Now',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
