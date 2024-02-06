@@ -1,4 +1,5 @@
 import 'package:aust_pharma1/Widgets/product_overview.dart';
+import 'package:aust_pharma1/usuables/count.dart';
 import 'package:flutter/material.dart';
 
 import '../profile_page.dart';
@@ -96,30 +97,7 @@ class Single_product extends StatelessWidget{
                       SizedBox(
                         width: 5,
                       ),
-                      Expanded(
-                        child: Container(
-                          height: 30,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.remove,
-                                size: 15,
-                                color: Colors.orangeAccent,),
-                              Text("1"),
-
-                              Icon(Icons.add,
-                                size: 15,
-                                color: Colors.orangeAccent,)
-                            ],
-                          ),
-
-                        ),
-                      ),
+                    Count(),
                     ],
                   )
                 ],
