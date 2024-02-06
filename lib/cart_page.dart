@@ -53,6 +53,12 @@ class CartModel extends ChangeNotifier{
     _cartItems.removeAt(index);
     notifyListeners();
   }
+  //clear list
+  void clearList() {
+      _cartItems.clear();
+      notifyListeners();
+  }
+
   //calculate total price
   String calculateTotal(){
     double price=0;

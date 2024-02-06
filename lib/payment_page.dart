@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'SuccessPage.dart';
+import 'cart_page.dart';
+typedef ClearListCallback = void Function();
 
 class payment_page extends StatefulWidget {
+
+
   @override
   _PaymentPageState createState() => _PaymentPageState();
 }
@@ -12,7 +17,11 @@ class _PaymentPageState extends State<payment_page> {
 
   void _showSuccessPage() {
     if (enteredPin.length == 5) {
-      Navigator.push(
+      CartModel cartModel = Provider.of<CartModel>(context, listen: false);
+
+      // Call the clearList function
+      cartModel.clearList();
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SuccessPage()),
       );
