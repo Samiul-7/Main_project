@@ -1,4 +1,5 @@
 import 'package:aust_pharma1/cart_page.dart';
+import 'package:aust_pharma1/usuables/DeliveryDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'payment_page.dart';
@@ -75,7 +76,7 @@ class Cart_page extends StatelessWidget {
                           if(value.calculateTotal()!='0.00'){
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => payment_page()),
+                              MaterialPageRoute(builder: (context) => DeliveryDetails()),
                             );
                           }
                         },
@@ -83,7 +84,7 @@ class Cart_page extends StatelessWidget {
                           backgroundColor: Colors.green,
                         ),
                         child: Text(
-                          'Pay Now',
+                          'Check Out',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,

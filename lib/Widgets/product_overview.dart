@@ -36,14 +36,14 @@ class _product_overviewState extends State<product_overview>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: Row(
-      //   children: [
-      //     bottommNavigatorBar(Colors.grey, Colors.deepOrange,"Add to Wishlist", Icons.favorite_outlined),
-      //     bottommNavigatorBar(Colors.grey, Colors.orangeAccent,"Add to Cart", Icons.shop_2_outlined),
-      //
-      //
-      //   ],
-      // ) ,
+       bottomNavigationBar: Row(
+         children: [
+           bottommNavigatorBar(Colors.grey, Colors.deepOrange,"Add to Wishlist", Icons.favorite_outlined),
+           bottommNavigatorBar(Colors.grey, Colors.orangeAccent,"Add to Cart", Icons.shop_2_outlined),
+
+
+         ],
+       ) ,
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
 
