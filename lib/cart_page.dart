@@ -4,19 +4,19 @@ class CartModel extends ChangeNotifier{
   String PRICE="";
   //list of items on sale
   final List _medicine = [
-    ["Vitamin E","50 ","assets/vitE1.png"],
-    ["Vitamin C","50 ","assets/vitC1.png"],
-    ["Vitrum","50","assets/vitrum1.png"],
-    ["Centrum","50","assets/centrum1.png"],
-    ["Vitamin B12","50","assets/vitB121.png"],
-    ["Revital","50","assets/revital1.png"],
+    ["Vitamin E","150 ","assets/vitE1.png"],
+    ["Vitamin C","250 ","assets/vitC1.png"],
+    ["Vitrum","530","assets/vitrum1.png"],
+    ["Centrum","450","assets/centrum1.png"],
+    ["Vitamin B12","550","assets/vitB121.png"],
+    ["Revital","230","assets/revital1.png"],
   ];
   final List  _women= [
     ["Ace","50 ","assets/ace.jpeg"],
-    ["Fliban","50 ","assets/fliban.jpeg"],
+    ["Fliban","750 ","assets/fliban.jpeg"],
     ["Freedom Pad","100","assets/pad.jpeg"],
     ["Women Plus","150","assets/plus.jpeg"],
-    ["Biotin","50","assets/shampoo.jpeg"],
+    ["Biotin","500","assets/shampoo.jpeg"],
     ["Syrup","150","assets/champion.png"],
   ];
   final List _baby = [

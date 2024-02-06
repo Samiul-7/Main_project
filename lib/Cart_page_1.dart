@@ -72,10 +72,12 @@ class Cart_page extends StatelessWidget {
                           // Handle the "Pay Now" button click
                           // You can navigate to the payment page or perform any other action.
                           // For simplicity, let's navigate to the PaymentPage.
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => payment_page()),
-                          );
+                          if(value.calculateTotal()!='0.00'){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => payment_page()),
+                            );
+                          }
                         },
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.green,

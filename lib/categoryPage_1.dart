@@ -40,7 +40,8 @@ class categoryPage_1 extends StatelessWidget {
         children: [
           Row(
             children: [
-              SizedBox(width: 350,),
+              Text("Welcome to Medicine Section",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+              SizedBox(width: 50,),
               FloatingActionButton(
                   onPressed: () =>Navigator.push(context, MaterialPageRoute(builder: (context){
                     return Cart_page();
@@ -106,7 +107,7 @@ class categoryPage_1 extends StatelessWidget {
                       itemBuilder:(context,index){
                         return MedTile(
                          medName: value.meds[index][0],
-                          medPrice: value.meds[index][1],
+                          medPrice: value.meds[index][1] + 'TK',
                           medImg: value.meds[index][2],
                           onPressed: (){
                            Provider.of<CartModel>(context,listen: false)

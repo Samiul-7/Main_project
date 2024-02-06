@@ -40,7 +40,8 @@ class categoryPage_2 extends StatelessWidget {
         children: [
           Row(
             children: [
-              SizedBox(width: 350,),
+              Text("Welcome to Woman Care section",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+              SizedBox(width: 50,),
               FloatingActionButton(
                 onPressed: () =>Navigator.push(context, MaterialPageRoute(builder: (context){
                   return Cart_page();
