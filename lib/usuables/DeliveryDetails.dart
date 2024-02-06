@@ -1,6 +1,8 @@
 import 'package:aust_pharma1/payment_page.dart';
 import 'package:aust_pharma1/usuables/SIngleDeliveryItem.dart';
 import 'package:flutter/material.dart';
+
+import 'add_new_adress.dart';
 class DeliveryDetails extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,19 @@ class DeliveryDetails extends StatelessWidget{
 
       ),
       bottomNavigationBar: Container(
+
         //width: 160,
           height: 38,
         margin: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
         child: MaterialButton(
           child: Text("Add new adress"),
           onPressed: (){
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddDeliverAddress()),
+              );
+
 
           },
           color: Colors.orangeAccent,
