@@ -1,21 +1,45 @@
+
+import 'package:aust_pharma1/firebase_auth_implement/firebase_auth_services.dart';
 import 'package:aust_pharma1/homepage.dart';
+import 'package:aust_pharma1/signup_page.dart';
 import 'package:aust_pharma1/usuables/text_field.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class login_page extends StatelessWidget {
+import 'Widgets/Background.dart';
+import 'admin_page.dart';
+
+class login_page extends StatefulWidget {
   login_page({super.key});
 
+  @override
+  State<login_page> createState() => _login_pageState();
+}
+
+class _login_pageState extends State<login_page> {
+
+  ///////////////////////////////////////////////////////
+
+  final FirebaseAuthService _auth = FirebaseAuthService();
+
+  //////////////////////////////////////////////////////
+
+
+  final A_pass='admin@@';
+  final A_email='admin26@gmail.com';
+
   final username_controller=TextEditingController();
+
   final pass_controller=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: SingleChildScrollView(
+    return Background(
+
+     child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height:40),
+            SizedBox(height:25),
             //////////////////////////////////////////logo
             Center(
               child: Icon(
@@ -35,7 +59,7 @@ class login_page extends StatelessWidget {
 
             my_text_field(
               controller:username_controller,
-              hintText: 'Username',
+              hintText: 'E-mail',
               obscureText: false,
             ),
 
@@ -59,10 +83,7 @@ class login_page extends StatelessWidget {
                 children:[
                   SizedBox(width:100,),
                   ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
+                  onPressed:_signIn,
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black), // Change button color
                     minimumSize: MaterialStateProperty.all(Size(150, 40)), // Change button size
@@ -80,7 +101,6 @@ class login_page extends StatelessWidget {
               ),
             ),
             SizedBox(height: 50,),
-
             //////////////////////////////////////////////or continue with
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -111,50 +131,21 @@ class login_page extends StatelessWidget {
             SizedBox(height: 30),
             //////////////////////////////////////////////facebook + apple design
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                  child: Ink.image(image: AssetImage('assets/google.png'),
-                    height: 70,
-                    width: 70,
+                Container(
+                  height: 30,
+                  width: 30,
+                  child: InkWell(
+                    child: Image(
+                      image: AssetImage('assets/google.png'),
+                    ),
+                    onTap: (){
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (_)=>home_page()));
+                    },
                   ),
-                ),
-                SizedBox(width:20),
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                  child: Ink.image(image: AssetImage('assets/facebook.png'),
-                    height: 70,
-                    width: 70,
-                  ),
-                ),
-                SizedBox(width:20),
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                  child: Ink.image(image: AssetImage('assets/twitter.png'),
-                    height: 70,
-                    width: 70,
-                  ),
-                ),
-                SizedBox(width:20),
-                InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (_)=>home_page()));
-                  },
-                  child: Ink.image(image: AssetImage('assets/github.png'),
-                    height: 70,
-                    width: 70,
-                  ),
+
                 ),
               ],
             ),
@@ -173,6 +164,25 @@ class login_page extends StatelessWidget {
                   ),
                   onTap: (){
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (_)=>signup_page()));
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 50,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Sign in as ',
+                  style: TextStyle(color: Colors.grey.shade900,fontSize: 20),
+                ),
+                SizedBox(width:10,),
+                GestureDetector(
+                  child: Text('Guest !',
+                    style: TextStyle(color: Colors.blue.shade900,fontWeight: FontWeight.bold,fontSize: 20),
+                  ),
+                  onTap: (){
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (_)=>home_page()));
                   },
                 ),
@@ -183,5 +193,28 @@ class login_page extends StatelessWidget {
       ),
     );;
   }
+  /////////////////////////////////////////////////////////////////////
+    void _signIn() async {
+      String email = username_controller.text;
+      String password = pass_controller.text;
+      if ( password == A_pass && email==A_email) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => adminP()));
+      }
+      else {
+        User? user = await _auth.signInWithEmailAndPassword(email, password);
+
+        if (user != null) {
+          print("Successfully logged in");
+
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => home_page()));
+        }
+        else {
+          print("Some error Occured");
+        }
+      }
+    }
+    //////////////////////////////////////////////////////////////////
 }
 

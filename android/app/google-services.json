@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138141710037",
+    "project_id": "austpharma-4dbcb",
+    "storage_bucket": "austpharma-4dbcb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138141710037:android:e7e7d46ddbf13e796b145c",
+        "android_client_info": {
+          "package_name": "com.example.aust_pharma1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFBnCKOGN4LkcscCBuVy2vPCkxMYw-sjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
